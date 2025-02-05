@@ -1,0 +1,210 @@
+{
+  "roundOf16": [
+    {
+      "id": 1,
+      "team1": {
+        "id": 1,
+        "name": "BREST",
+        "logo": "/src/assets/logo/brest.png"
+      },
+      "team2": {
+        "id": 2,
+        "name": "PARIS",
+        "logo": "/src/assets/logo/psg.png"
+      }
+    },
+    {
+      "id": 2,
+      "team1": {
+        "id": 3,
+        "name": "CLUB BRUGGE",
+        "logo": "/src/assets/logo/brugge.png"
+      },
+      "team2": {
+        "id": 4,
+        "name": "ATALANTA",
+        "logo": "/src/assets/logo/atlanta.png"
+      }
+    },
+    {
+      "id": 3,
+      "team1": {
+        "id": 5,
+        "name": "MAN CITY",
+        "logo": "/src/assets/logo/mancity.png"
+      },
+      "team2": {
+        "id": 6,
+        "name": "REAL MADRID",
+        "logo": "/src/assets/logo/realmadrid.png"
+      }
+    },
+    {
+      "id": 4,
+      "team1": {
+        "id": 7,
+        "name": "JUVENTUS",
+        "logo": "/src/assets/logo/juventus.png"
+      },
+      "team2": {
+        "id": 8,
+        "name": "PSV",
+        "logo": "/src/assets/logo/psv.png"
+      }
+    },
+    {
+      "id": 5,
+      "team1": {
+        "id": 9,
+        "name": "MONACO",
+        "logo": "/src/assets/logo/monaco.png"
+      },
+      "team2": {
+        "id": 10,
+        "name": "BENFICA",
+        "logo": "/src/assets/logo/benfica.png"
+      }
+    },
+    {
+      "id": 6,
+      "team1": {
+        "id": 11,
+        "name": "SPORTING CP",
+        "logo": "/src/assets/logo/sportingcp.png"
+      },
+      "team2": {
+        "id": 12,
+        "name": "DORTMUND",
+        "logo": "/src/assets/logo/dortmund.png"
+      }
+    },
+    {
+      "id": 7,
+      "team1": {
+        "id": 13,
+        "name": "CELTIC",
+        "logo": "/src/assets/logo/celtic.png"
+      },
+      "team2": {
+        "id": 14,
+        "name": "BAYERN MÜNCHEN",
+        "logo": "/src/assets/logo/bayern.png"
+      }
+    },
+    {
+      "id": 8,
+      "team1": {
+        "id": 15,
+        "name": "FEYENOORD",
+        "logo": "/src/assets/logo/feyenoord.png"
+      },
+      "team2": {
+        "id": 16,
+        "name": "MILAN",
+        "logo": "/src/assets/logo/milan.png"
+      }
+    }
+  ],
+  "quarterFinals": [
+    {
+      "id": 9,
+      "team1": {
+        "id": 1,
+        "name": "BREST",
+        "logo": "/src/assets/logo/brest.png"
+      },
+      "team2": {
+        "id": 4,
+        "name": "ATALANTA",
+        "logo": "/src/assets/logo/atlanta.png"
+      }
+    },
+    {
+      "id": 10,
+      "team1": {
+        "id": 5,
+        "name": "MAN CITY",
+        "logo": "/src/assets/logo/mancity.png"
+      },
+      "team2": {
+        "id": 7,
+        "name": "JUVENTUS",
+        "logo": "/src/assets/logo/juventus.png"
+      }
+    },
+    {
+      "id": 11,
+      "team1": {
+        "id": 10,
+        "name": "BENFICA",
+        "logo": "/src/assets/logo/benfica.png"
+      },
+      "team2": {
+        "id": 11,
+        "name": "SPORTING CP",
+        "logo": "/src/assets/logo/sportingcp.png"
+      }
+    },
+    {
+      "id": 12,
+      "team1": {
+        "id": 14,
+        "name": "BAYERN MÜNCHEN",
+        "logo": "/src/assets/logo/bayern.png"
+      },
+      "team2": {
+        "id": 16,
+        "name": "MILAN",
+        "logo": "/src/assets/logo/milan.png"
+      }
+    }
+  ],
+  "semiFinals": [
+    {
+      "id": 13,
+      "team1": {
+        "id": 4,
+        "name": "ATALANTA",
+        "logo": "/src/assets/logo/atlanta.png"
+      },
+      "team2": {
+        "id": 5,
+        "name": "MAN CITY",
+        "logo": "/src/assets/logo/mancity.png"
+      }
+    },
+    {
+      "id": 14,
+      "team1": {
+        "id": 10,
+        "name": "BENFICA",
+        "logo": "/src/assets/logo/benfica.png"
+      },
+      "team2": {
+        "id": 14,
+        "name": "BAYERN MÜNCHEN",
+        "logo": "/src/assets/logo/bayern.png"
+      }
+    }
+  ],
+  "finals": [
+    {
+      "id": 15,
+      "team1": {
+        "id": 5,
+        "name": "MAN CITY",
+        "logo": "/src/assets/logo/mancity.png"
+      },
+      "team2": {
+        "id": 14,
+        "name": "BAYERN MÜNCHEN",
+        "logo": "/src/assets/logo/bayern.png"
+      }
+    }
+  ],
+  "winner": {
+    "id": 5,
+    "name": "MAN CITY",
+    "logo": "/src/assets/logo/mancity.png"
+  }
+}
