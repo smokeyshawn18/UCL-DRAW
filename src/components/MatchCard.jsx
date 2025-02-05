@@ -2,26 +2,42 @@ import React, { useState, useCallback, useMemo } from "react";
 
 import Win from "../assets/ucl.jpeg";
 import Round from "./Round";
+import LIV from "../assets/logo/liverpool.png";
+import PSG from "../assets/logo/psg.png";
+import VILLA from "../assets/logo/astonvilla.png";
+import BARCA from "../assets/logo/barcelona.png";
+import CITY from "../assets/logo/mancity.png";
+import ATLANTA from "../assets/logo/atlanta.png";
+import JUV from "../assets/logo/juventus.png";
+import ARS from "../assets/logo/arsenal.png";
+import LEV from "../assets/logo/leverkusen.png";
+import LIL from "../assets/logo/lille.png";
+import BENFICA from "../assets/logo/benfica.png";
+import INTER from "../assets/logo/inter.png";
+import MILAN from "../assets/logo/milan.png";
+import AMD from "../assets/logo/amadrid.png";
+import BAYERN from "../assets/logo/bayern.png";
+import DOR from "../assets/logo/dortmund.png";
 
 function MatchCard() {
   const initialTeams = useMemo(
     () => [
-      { id: 1, name: "LIVERPOOL", logo: "/src/assets/logo/liverpool.png" },
-      { id: 2, name: "PSG", logo: "/src/assets/logo/psg.png" },
-      { id: 3, name: "ASTON VILLA", logo: "/src/assets/logo/astonvilla.png" },
-      { id: 4, name: "ATALANTA", logo: "/src/assets/logo/atlanta.png" },
-      { id: 5, name: "MAN CITY", logo: "/src/assets/logo/mancity.png" },
-      { id: 6, name: "LEVERKUSEN", logo: "/src/assets/logo/leverkusen.png" },
-      { id: 7, name: "JUVENTUS", logo: "/src/assets/logo/juventus.png" },
-      { id: 8, name: "ARSENAL", logo: "/src/assets/logo/arsenal.png" },
-      { id: 9, name: "BARCELONA", logo: "/src/assets/logo/barcelona.png" },
-      { id: 10, name: "BENFICA", logo: "/src/assets/logo/benfica.png" },
-      { id: 11, name: "LILLE", logo: "/src/assets/logo/lille.png" },
-      { id: 12, name: "DORTMUND", logo: "/src/assets/logo/dortmund.png" },
-      { id: 13, name: "ATLETICO MADRID", logo: "/src/assets/logo/amadrid.png" },
-      { id: 14, name: "BAYERN MÜNCHEN", logo: "/src/assets/logo/bayern.png" },
-      { id: 15, name: "INTER", logo: "/src/assets/logo/inter.png" },
-      { id: 16, name: "MILAN", logo: "/src/assets/logo/milan.png" },
+      { id: 1, name: "LIVERPOOL", logo: LIV },
+      { id: 2, name: "PSG", logo: PSG },
+      { id: 3, name: "ASTON VILLA", logo: VILLA },
+      { id: 4, name: "ATALANTA", logo: ATLANTA },
+      { id: 5, name: "MAN CITY", logo: CITY },
+      { id: 6, name: "LEVERKUSEN", logo: LEV },
+      { id: 7, name: "JUVENTUS", logo: JUV },
+      { id: 8, name: "ARSENAL", logo: ARS },
+      { id: 9, name: "BARCELONA", logo: BARCA },
+      { id: 10, name: "BENFICA", logo: BENFICA },
+      { id: 11, name: "LILLE", logo: LIL },
+      { id: 12, name: "DORTMUND", logo: DOR },
+      { id: 13, name: "ATLETICO MADRID", logo: AMD },
+      { id: 14, name: "BAYERN MÜNCHEN", logo: BAYERN },
+      { id: 15, name: "INTER", logo: INTER },
+      { id: 16, name: "MILAN", logo: MILAN },
       // ... rest of the teams
     ],
     []
