@@ -1,20 +1,18 @@
 import React, { useState, useCallback, useMemo } from "react";
-
 import Win from "../assets/ucl.jpeg";
-import Round from "./Round";
 import LIV from "../assets/logo/liverpool.png";
 import PSG from "../assets/logo/psg.png";
 import VILLA from "../assets/logo/astonvilla.png";
 import BARCA from "../assets/logo/barcelona.png";
-import CITY from "../assets/logo/mancity.png";
-import ATLANTA from "../assets/logo/atlanta.png";
-import JUV from "../assets/logo/juventus.png";
+import CITY from "../assets/logo/mancity.webp";
+import ATLANTA from "../assets/logo/cb.webp";
+import JUV from "../assets/logo/psv.webp";
 import ARS from "../assets/logo/arsenal.png";
 import LEV from "../assets/logo/leverkusen.png";
 import LIL from "../assets/logo/lille.png";
 import BENFICA from "../assets/logo/benfica.png";
 import INTER from "../assets/logo/inter.png";
-import MILAN from "../assets/logo/milan.png";
+import MILAN from "../assets/logo/feyenoord.png";
 import AMD from "../assets/logo/amadrid.png";
 import BAYERN from "../assets/logo/bayern.png";
 import DOR from "../assets/logo/dortmund.png";
@@ -24,21 +22,20 @@ function MatchCard() {
     () => [
       { id: 1, name: "LIVERPOOL", logo: LIV },
       { id: 2, name: "PSG", logo: PSG },
-      { id: 3, name: "ASTON VILLA", logo: VILLA },
-      { id: 4, name: "ATALANTA", logo: ATLANTA },
-      { id: 5, name: "MAN CITY", logo: CITY },
-      { id: 6, name: "LEVERKUSEN", logo: LEV },
-      { id: 7, name: "JUVENTUS", logo: JUV },
+      { id: 3, name: "A. VILLA", logo: VILLA },
+      { id: 4, name: "C. Brugge", logo: ATLANTA },
+      { id: 5, name: "R. Madrid ", logo: CITY },
+      { id: 6, name: "A. Madrid", logo: AMD },
+      { id: 7, name: "PSV", logo: JUV },
       { id: 8, name: "ARSENAL", logo: ARS },
       { id: 9, name: "BARCELONA", logo: BARCA },
       { id: 10, name: "BENFICA", logo: BENFICA },
       { id: 11, name: "LILLE", logo: LIL },
       { id: 12, name: "DORTMUND", logo: DOR },
-      { id: 13, name: "ATLETICO MADRID", logo: AMD },
-      { id: 14, name: "BAYERN MÜNCHEN", logo: BAYERN },
+      { id: 13, name: "Leverkusen", logo: LEV },
+      { id: 14, name: "BAYERN", logo: BAYERN },
       { id: 15, name: "INTER", logo: INTER },
-      { id: 16, name: "MILAN", logo: MILAN },
-      // ... rest of the teams
+      { id: 16, name: "Fey", logo: MILAN },
     ],
     []
   );
@@ -50,8 +47,6 @@ function MatchCard() {
       team2: initialTeams[i * 2 + 1],
     }))
   );
-
-  const [selectedTeam, setSelectedTeam] = useState(null);
   const [quarterFinals, setQuarterFinals] = useState(() =>
     Array.from({ length: 4 }, (_, i) => ({
       id: i + 9,
@@ -68,6 +63,7 @@ function MatchCard() {
   );
   const [finals, setFinals] = useState([{ id: 15, team1: null, team2: null }]);
   const [winner, setWinner] = useState(null);
+  const [selectedTeam, setSelectedTeam] = useState(null);
 
   const handleMatchWinner = useCallback((matchId, winningTeam, round) => {
     if (!winningTeam) return;
@@ -113,105 +109,134 @@ function MatchCard() {
     updateBracket[round]?.(matchId);
   }, []);
 
-  const MatchCard = useCallback(
+  const UCLMatchCard = useCallback(
     ({ match, round }) => (
-      <div className="flex flex-col gap-2 bg-white/5 rounded-lg p-3 sm:p-4 backdrop-blur-sm">
-        {[1, 2].map((teamNum) => (
-          <React.Fragment key={teamNum}>
-            <div
-              onClick={() =>
-                handleMatchWinner(match.id, match[`team${teamNum}`], round)
-              }
-              className={`flex items-center gap-2 p-2 rounded cursor-pointer hover:bg-blue-500/20 transition-colors
-              ${
-                selectedTeam?.id === match[`team${teamNum}`]?.id
-                  ? "bg-blue-500/20"
-                  : ""
-              }`}
-            >
-              {match[`team${teamNum}`] ? (
-                <>
-                  <img
-                    src={match[`team${teamNum}`].logo}
-                    alt={match[`team${teamNum}`].name}
-                    className="w-5 h-5 sm:w-6 sm:h-6 object-contain"
-                  />
-                  <span className="text-white text-sm sm:text-base font-bold">
-                    {match[`team${teamNum}`].name}
-                  </span>
-                </>
-              ) : (
-                <span className="text-gray-400 text-sm sm:text-base">TBD</span>
-              )}
-            </div>
-            {teamNum === 1 && (
-              <div className="text-center text-xs sm:text-sm text-gray-100">
-                VS
-              </div>
+      <div className="bg-gray-900/80 border border-gray-700 rounded-lg p-4 shadow-lg hover:shadow-xl transition-shadow">
+        <div className="flex justify-between items-center">
+          <div
+            onClick={() => handleMatchWinner(match.id, match.team1, round)}
+            className={`flex items-center gap-3 p-2 rounded cursor-pointer hover:bg-blue-600/30 transition-colors ${
+              selectedTeam?.id === match.team1?.id ? "bg-blue-600/50" : ""
+            }`}
+          >
+            {match.team1 ? (
+              <>
+                <img
+                  src={match.team1.logo}
+                  alt={match.team1.name}
+                  className="w-8 h-8 object-contain"
+                />
+                <span className="text-white font-semibold text-sm">
+                  {match.team1.name}
+                </span>
+              </>
+            ) : (
+              <span className="text-gray-400 text-sm">TBD</span>
             )}
-          </React.Fragment>
-        ))}
+          </div>
+          <span className="text-gray-300 text-xs">vs</span>
+          <div
+            onClick={() => handleMatchWinner(match.id, match.team2, round)}
+            className={`flex items-center gap-3 p-2 rounded cursor-pointer hover:bg-blue-600/30 transition-colors ${
+              selectedTeam?.id === match.team2?.id ? "bg-blue-600/50" : ""
+            }`}
+          >
+            {match.team2 ? (
+              <>
+                <img
+                  src={match.team2.logo}
+                  alt={match.team2.name}
+                  className="w-8 h-8 object-contain"
+                />
+                <span className="text-white font-semibold text-sm">
+                  {match.team2.name}
+                </span>
+              </>
+            ) : (
+              <span className="text-gray-400 text-sm">TBD</span>
+            )}
+          </div>
+        </div>
+        <div className="text-center text-gray-500 text-xs mt-2">
+          Match {match.id} | Date TBD
+        </div>
       </div>
     ),
     [selectedTeam, handleMatchWinner]
   );
 
   return (
-    <div className="min-h-screen bg-[#020617] bg-gradient-to-br from-blue-900/20 to-purple-900/20 p-4 sm:p-8">
+    <div className="min-h-screen bg-gradient-to-b from-gray-900 to-blue-950 p-6">
       <div className="max-w-7xl mx-auto">
-        <Round />
-        <p className="text-center text-white font-semibold text-base mb-4">
-          Predict your winner
+        <h1 className="text-3xl font-bold text-center text-white mb-8">
+          UEFA Champions League Knockout Stage
+        </h1>
+        <p className="text-center text-gray-300 mb-6">
+          Predict your UCL Winner
         </p>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-8 ">
-          {/* Bracket sections */}
-          {[
-            { title: "Round of 16", matches: roundOf16, round: "roundOf16" },
-            {
-              title: "Quarter Finals",
-              matches: quarterFinals,
-              round: "quarter",
-            },
-            { title: "Semi Finals", matches: semiFinals, round: "semi" },
-            { title: "Finals", matches: finals, round: "final" },
-          ].map((section, index) => (
-            <div
-              key={section.title}
-              className={`space-y-4 sm:space-y-8 ${
-                index > 0 ? "mt-8 sm:mt-16" : ""
-              }`}
-            >
-              <h2 className="text-lg sm:text-xl font-semibold text-center text-white mb-4">
-                {section.title}
-              </h2>
-              {section.matches.map((match) => (
-                <MatchCard key={match.id} match={match} round={section.round} />
-              ))}
-              {section.title === "Finals" && winner && (
-                <div className="text-center mt-8">
-                  <h3 className="text-xl sm:text-2xl font-bold text-yellow-400 mb-2">
-                    Winner
-                  </h3>
-                  <div className="flex items-center justify-center gap-4">
-                    <img
-                      src={winner.logo}
-                      alt={winner.name}
-                      className="w-8 h-8 sm:w-12 sm:h-12 object-contain"
-                    />
-                    <span className="text-white text-lg sm:text-xl">
-                      {winner.name}
-                    </span>
-                  </div>
+        <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
+          {/* Round of 16 */}
+          <div className="space-y-6">
+            <h2 className="text-xl font-semibold text-center text-white bg-blue-800/50 p-2 rounded">
+              Round of 16
+            </h2>
+            {roundOf16.map((match) => (
+              <UCLMatchCard key={match.id} match={match} round="roundOf16" />
+            ))}
+          </div>
+
+          {/* Quarter Finals */}
+          <div className="space-y-12 mt-12 lg:mt-24">
+            <h2 className="text-xl font-semibold text-center text-white bg-blue-800/50 p-2 rounded">
+              Quarter Finals
+            </h2>
+            {quarterFinals.map((match) => (
+              <UCLMatchCard key={match.id} match={match} round="quarter" />
+            ))}
+          </div>
+
+          {/* Semi Finals */}
+          <div className="space-y-24 mt-24 lg:mt-48">
+            <h2 className="text-xl font-semibold text-center text-white bg-blue-800/50 p-2 rounded">
+              Semi Finals
+            </h2>
+            {semiFinals.map((match) => (
+              <UCLMatchCard key={match.id} match={match} round="semi" />
+            ))}
+          </div>
+
+          {/* Finals */}
+          <div className="space-y-12 mt-48 lg:mt-72">
+            <h2 className="text-xl font-semibold text-center text-white bg-blue-800/50 p-2 rounded">
+              Final
+            </h2>
+            {finals.map((match) => (
+              <UCLMatchCard key={match.id} match={match} round="final" />
+            ))}
+            {winner && (
+              <div className="text-center mt-12">
+                <h3 className="text-2xl font-bold text-yellow-400 mb-4">
+                  UCL Winner
+                </h3>
+                <div className="flex justify-center items-center gap-4">
                   <img
-                    src={Win}
-                    alt="winner"
-                    className="w-32 h-32 sm:w-50 sm:h-50 object-contain mt-4 mx-auto"
+                    src={winner.logo}
+                    alt={winner.name}
+                    className="w-12 h-12 object-contain"
                   />
+                  <span className="text-white text-xl font-semibold">
+                    {winner.name}
+                  </span>
                 </div>
-              )}
-            </div>
-          ))}
+                <img
+                  src={Win}
+                  alt="UCL Trophy"
+                  className="w-40 h-40 object-contain mt-6 mx-auto"
+                />
+              </div>
+            )}
+          </div>
         </div>
       </div>
     </div>
